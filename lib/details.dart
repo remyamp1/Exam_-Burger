@@ -43,7 +43,22 @@ class _DetailsState extends State<Details> {
                   Icon(Icons.star,color: Colors.yellow,),
                 ],
               ),
-              SizedBox(height: 20,)
+              SizedBox(height: 20,),
+Text('Ingredients',style: TextStyle(fontSize: 10,color: Colors.black),),
+SizedBox(height: 10),
+SingleChildScrollView(
+  scrollDirection: Axis.horizontal,
+  child: Row(
+    children: [
+      CircleAvatar(
+        radius: 40,
+        backgroundImage: AssetImage("assets/images/queen.jpeg"),
+      ),
+      SizedBox(width: 10),
+    ],
+  ),
+),
+SizedBox(width: 15),
             ],
                 
                 
