@@ -1,13 +1,13 @@
+import 'package:exam_project/database.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-class Details extends StatefulWidget {
-  const Details({super.key});
+class Details extends StatelessWidget {
 
-  @override
-  State<Details> createState() => _DetailsState();
-}
+final String imagepath;
+final String name;
+ final String price;
+Details({required this.imagepath,required this.name,required this.price});
 
-class _DetailsState extends State<Details> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,15 +22,17 @@ class _DetailsState extends State<Details> {
         padding: const EdgeInsets.all(8.0),
         child: Center(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(child: 
-              Image(image: AssetImage("assets/images/king.jpeg"))),
+              Image(image:AssetImage(imagepath))),
               SizedBox(height: 10,),
               Row(
                 children: [
-                  Text("Beef Burger",style: TextStyle(fontSize: 15,color: Colors.black),),
+                  Text(name,style: TextStyle(fontSize: 15,color: Colors.black),),
                   Spacer(),
-                  Text("7.50",style: TextStyle(color: Colors.red),)
+                  Text(price,style: TextStyle(color: Colors.red),)
                 ],
               ),
               SizedBox(height: 10),
@@ -49,21 +51,47 @@ SizedBox(height: 10),
 SingleChildScrollView(
   scrollDirection: Axis.horizontal,
   child: Row(
-    children: [
-      CircleAvatar(
-        radius: 40,
-        backgroundImage: AssetImage("assets/images/queen.jpeg"),
-      ),
-      SizedBox(width: 10),
-    ],
-  ),
+    children:List.generate(4, (index){
+    return  Row(
+        children: [
+          CircleAvatar(
+            radius: 40,
+            backgroundImage: AssetImage(Database.MyList1[index]['image']),
+          ),
+          SizedBox(width: 10),
+        ],
+      );
+  })),
 ),
-SizedBox(width: 15),
-            ],
+
+SizedBox(height: 15),
+Padding(
+  padding: const EdgeInsets.all(8.0),
+  child: Text('Description',style: TextStyle(fontSize: 15,color: Colors.black),),
+),
+SizedBox(height: 10),
+Text('This beef burger uses 100% quality beef with\nsliced tomatones,cucumbers,vegtables and\noions...',),
+SizedBox(width: 2,),
+Text('Read More',style: TextStyle(color: Colors.red),),
+SizedBox(height: 15),
+Row(
+  
+  children: [
+    Container(
+      height: 30,
+      width: 50,
+      
+    ),
+    ElevatedButton(onPressed: (){},
+    style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
+     child: Center(child: Text('Add To Cart'),))
+  ],
+)
+          
                 
                 
               
-            
+           ] 
           ),
         ),
       ),

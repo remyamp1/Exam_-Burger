@@ -1,4 +1,5 @@
 import 'package:exam_project/database.dart';
+import 'package:exam_project/details.dart';
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 class First extends StatefulWidget {
@@ -58,10 +59,17 @@ class _FirstState extends State<First> {
           color: const Color.fromARGB(255, 219, 218, 218),
           child: Column(
             children: [
-        Container(
-          height: 50,
-          width: 50,
-         color: Colors.red,
+        GestureDetector(
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>Details(imagepath:Database.MyList[index]['image'], 
+            name: Database.MyList[index]['name'],
+             price: Database.MyList[index]['price'])));
+          },
+          child: Container(
+            height: 50,
+            width: 50,
+           color: Colors.red,
+          ),
         ),
         SizedBox(height: 10,),
         Text(Database.MyList[index]['name']),

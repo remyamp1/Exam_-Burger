@@ -27,4 +27,20 @@ class Database  {
   'price':'\$7.50',Color:Colors.red,
 },
   ];
+
+   static List <Map> MyList1=[
+    {
+      'image':'assets/images/king.jpeg',
+    },
+    {
+      'image':'assets/images/king.jpeg',
+    },
+    {
+      'image':'assets/images/king.jpeg',
+    },
+    
+ {
+      'image':'assets/images/king.jpeg',
+    },
+   ];
 }
