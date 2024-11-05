@@ -1,5 +1,6 @@
 import 'package:exam_project/details.dart';
 import 'package:exam_project/firstpage.dart';
+import 'package:exam_project/food.dart';
 import 'package:exam_project/login.dart';
 import 'package:exam_project/reg.dart';
 import 'package:exam_project/sign.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Details(),
+      home: DetailsExample(),
     );
   }
 }
